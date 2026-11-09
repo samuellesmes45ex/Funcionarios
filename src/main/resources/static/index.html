@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Directorio de Funcionarios</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="contenedor">
+            <h1>Directorio de Funcionarios</h1>
+            <p>Registra, consulta y actualiza los datos del equipo en un solo lugar.</p>
+        </div>
+    </header>
+
+    <main class="contenedor">
+        <div id="mensaje" class="mensaje oculto" role="status" aria-live="polite"></div>
+
+        <section class="panel" aria-labelledby="titulo-formulario">
+            <h2 id="titulo-formulario">Registrar funcionario</h2>
+            <form id="form-funcionario" novalidate>
+                <div class="cuadricula">
+                    <div class="campo">
+                        <label for="id">ID</label>
+                        <input type="text" id="id" placeholder="Se asigna al guardar" readonly>
+                    </div>
+                    <div class="campo">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" autocomplete="off" required>
+                    </div>
+                    <div class="campo">
+                        <label for="cargo">Cargo</label>
+                        <input type="text" id="cargo" autocomplete="off" required>
+                    </div>
+                    <div class="campo">
+                        <label for="departamento">Departamento</label>
+                        <input type="text" id="departamento" autocomplete="off" required>
+                    </div>
+                    <div class="campo">
+                        <label for="telefono">Teléfono (opcional)</label>
+                        <input type="text" id="telefono" inputmode="numeric" pattern="[0-9]*" placeholder="Solo números" autocomplete="off">
+                    </div>
+                </div>
+                <div class="acciones">
+                    <button type="submit" id="btn-guardar" class="btn btn-primario">Guardar</button>
+                    <button type="button" id="btn-limpiar" class="btn btn-secundario">Limpiar formulario</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel" aria-labelledby="titulo-busqueda">
+            <h2 id="titulo-busqueda">Buscar en el directorio</h2>
+            <div class="busquedas">
+                <form id="form-buscar-id" class="busqueda" novalidate>
+                    <label for="buscar-id">Por ID</label>
+                    <div class="fila">
+                        <input type="text" id="buscar-id" inputmode="numeric" placeholder="Ej. 3">
+                        <button type="submit" class="btn btn-secundario">Consultar</button>
+                    </div>
+                </form>
+                <form id="form-buscar-nombre" class="busqueda" novalidate>
+                    <label for="buscar-nombre">Por nombre (o parte del nombre)</label>
+                    <div class="fila">
+                        <input type="text" id="buscar-nombre" placeholder="Ej. ana" autocomplete="off">
+                        <button type="submit" class="btn btn-secundario">Buscar</button>
+                    </div>
+                </form>
+                <form id="form-buscar-departamento" class="busqueda" novalidate>
+                    <label for="buscar-departamento">Por departamento (nombre completo)</label>
+                    <div class="fila">
+                        <input type="text" id="buscar-departamento" placeholder="Ej. Contabilidad" autocomplete="off">
+                        <button type="submit" class="btn btn-secundario">Filtrar</button>
+                    </div>
+                </form>
+            </div>
+            <div class="acciones">
+                <button type="button" id="btn-listado" class="btn btn-secundario">Ver listado completo</button>
+            </div>
+        </section>
+
+        <section class="panel" aria-labelledby="titulo-tabla">
+            <h2 id="titulo-tabla">Funcionarios <span id="contador" class="contador"></span></h2>
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Cargo</th>
+                            <th>Departamento</th>
+                            <th>Teléfono</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-cuerpo"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

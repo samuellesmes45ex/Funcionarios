@@ -1,0 +1,258 @@
+:root {
+    --fondo: #eef1f4;
+    --superficie: #ffffff;
+    --tinta: #1f2a37;
+    --tinta-suave: #5b6776;
+    --borde: #d5dbe2;
+    --acento: #0e6b66;
+    --acento-oscuro: #0a524e;
+    --acento-claro: #e1f1ef;
+    --peligro: #b3261e;
+    --peligro-claro: #fbe9e7;
+    --aviso: #7a5200;
+    --aviso-claro: #fff3d6;
+    --radio: 6px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--fondo);
+    color: var(--tinta);
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.contenedor {
+    width: min(1100px, 100% - 2rem);
+    margin-inline: auto;
+}
+
+.encabezado {
+    background: var(--tinta);
+    color: #fff;
+    padding: 2rem 0 1.75rem;
+    border-bottom: 4px solid var(--acento);
+}
+
+.encabezado h1 {
+    margin: 0;
+    font-size: clamp(1.6rem, 4vw, 2.25rem);
+    letter-spacing: -0.01em;
+}
+
+.encabezado p {
+    margin: 0.35rem 0 0;
+    color: #c4ccd6;
+    max-width: 60ch;
+}
+
+main {
+    padding-block: 1.5rem 3rem;
+}
+
+.panel {
+    background: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    padding: 1.25rem 1.5rem 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.panel h2 {
+    margin: 0 0 1rem;
+    font-size: 1.2rem;
+}
+
+.contador {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--tinta-suave);
+}
+
+/* Mensajes */
+.mensaje {
+    padding: 0.75rem 1rem;
+    border-radius: var(--radio);
+    margin-bottom: 1.25rem;
+    border: 1px solid;
+    font-weight: 500;
+}
+
+.mensaje.exito {
+    background: var(--acento-claro);
+    border-color: var(--acento);
+    color: var(--acento-oscuro);
+}
+
+.mensaje.error {
+    background: var(--peligro-claro);
+    border-color: var(--peligro);
+    color: var(--peligro);
+}
+
+.mensaje.aviso {
+    background: var(--aviso-claro);
+    border-color: #d9a21b;
+    color: var(--aviso);
+}
+
+.oculto {
+    display: none;
+}
+
+/* Formularios */
+.cuadricula {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1rem;
+}
+
+.campo label,
+.busqueda label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    font: inherit;
+    color: var(--tinta);
+    background: #fff;
+}
+
+input[readonly] {
+    background: var(--fondo);
+    color: var(--tinta-suave);
+}
+
+input:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--acento);
+    outline-offset: 2px;
+}
+
+input.invalido {
+    border-color: var(--peligro);
+}
+
+.busquedas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem 1.5rem;
+}
+
+.fila {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.1rem;
+}
+
+/* Botones */
+.btn {
+    font: inherit;
+    font-weight: 600;
+    padding: 0.55rem 1.1rem;
+    border-radius: var(--radio);
+    border: 1px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.btn-primario {
+    background: var(--acento);
+    color: #fff;
+}
+
+.btn-primario:hover {
+    background: var(--acento-oscuro);
+}
+
+.btn-secundario {
+    background: #fff;
+    color: var(--tinta);
+    border-color: var(--borde);
+}
+
+.btn-secundario:hover {
+    background: var(--fondo);
+}
+
+.btn-peligro {
+    background: #fff;
+    color: var(--peligro);
+    border-color: var(--peligro);
+}
+
+.btn-peligro:hover {
+    background: var(--peligro-claro);
+}
+
+.btn-pequeno {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.9rem;
+}
+
+/* Tabla */
+.tabla-contenedor {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 0.65rem 0.75rem;
+    border-bottom: 1px solid var(--borde);
+}
+
+th {
+    background: var(--fondo);
+    font-size: 0.9rem;
+}
+
+tbody tr:hover {
+    background: #f7f9fa;
+}
+
+td.celda-acciones {
+    display: flex;
+    gap: 0.4rem;
+}
+
+@media (max-width: 600px) {
+    .panel {
+        padding: 1rem;
+    }
+
+    .fila {
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
